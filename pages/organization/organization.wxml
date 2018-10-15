@@ -1,0 +1,81 @@
+<view>
+</view>
+<view class="section">
+  <view class="form_style">
+    
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>公司</text>
+            <!--<text style="font-size:28rpx;">（分局）</text>-->
+        </view>
+        <view class="form-row-item flex2">
+            <picker class="form-row-picker" value="{{companyIndex}}" bindchange="bindPickerChangeCompany" range="{{companyArray}}" range-key="{{companyRangeKey}}">
+                <view class="picker-text">
+                   {{companyArray[companyIndex].name}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>分公司</text>
+            <!-- <text style="font-size:28rpx;">（支局）</text> -->
+        </view>
+        <view class="form-row-item flex2">
+            <picker disabled="{{isSubCompany}}" class="form-row-picker" value="{{subCompanyIndex}}" bindchange="bindSubCompany" range="{{subCompanyArray}}" range-key="{{subCompanyRangeKey}}">
+                <view class="picker-text">
+                   {{subCompanyArray[subCompanyIndex].name}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>办事处</text>
+            <!-- <text style="font-size:28rpx;">（支局）</text> -->
+        </view>
+        <view class="form-row-item flex2">
+            <picker disabled="{{isOffice}}" class="form-row-picker" value="{{officeIndex}}" bindchange="bindPickerChangeOffice" range="{{officeArray}}" range-key="{{officeRangeKey}}">
+                <view class="picker-text">
+                   {{officeArray[officeIndex].name}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>商圈</text>
+            <!-- <text style="font-size:28rpx;">（支局）</text> -->
+        </view>
+        <view class="form-row-item flex2">
+            <picker  disabled="{{isShangquan}}" class="form-row-picker" value="{{shangquanIndex}}" bindchange="bindPickerChangeShangquan" range="{{shangquanArray}}" range-key="{{shangquanRangeKey}}">
+                <view class="picker-text">
+                   {{shangquanArray[shangquanIndex].name}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>门店</text>
+        </view>
+        <view class="form-row-item flex2">
+            <picker  disabled="{{isShop}}" class="form-row-picker" value="{{shopIndex}}" bindchange="bindPickerChangeShop" range="{{shopArray}}" range-key="{{shopRangeKey}}">
+                <view class="picker-text">
+                   {{shopArray[shopIndex].name}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <button disabled="{{isChange}}" class='{{isSelect}}' bindtap="changeInformation">修改信息</button>
+        <button style="background-color:#FECA41;margin-top:10px;" bindtap="entryInformation">录入信息</button>
+    </view>
+    <text>{{tipTxt}}</text>
+</view>
+</view>

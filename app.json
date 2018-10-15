@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/page_user_bind/page_user_bind",
+    "pages/shop_info_record/shop_info_record",
+    "pages/organization/organization"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "欢迎使用",
+    "navigationBarTextStyle":"black"
+  }
+}

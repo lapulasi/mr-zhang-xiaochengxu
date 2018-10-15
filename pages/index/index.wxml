@@ -1,0 +1,16 @@
+<view>
+  <loading hidden="{{hidden}}">
+    用户登录中...
+  </loading>
+</view>
+<view class="container">
+  <view bindtap="bindViewTap" class="userinfo">
+    <open-data class="userinfo-avatar" type="userAvatarUrl">{{motto}}</open-data>
+    <!-- <image class="userinfo-avatar" src="{{motto}}" mode="aspectFill"></image> -->
+    <text class="userinfo-txt1">您好：{{userInfo.name}}</text>
+  </view>
+  <view class="usermotto">
+    <button style="background-color:#9ED86A;margin-top:10px;" bindtap="bindYanjie">门店登记</button>
+    <!-- <button style="background-color:#DDDDDD;margin-top:10px;"bindtap="bindGGWUser">用户绑定</button> -->
+  </view>
+</view>

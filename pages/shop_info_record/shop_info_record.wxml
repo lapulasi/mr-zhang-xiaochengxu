@@ -1,0 +1,183 @@
+<view>
+    <loading hidden="{{hidden}}">
+        图片上传中...
+    </loading>
+</view>
+<view class="{{isViewCoverShow}} page-body" bindtap='changeViewIsCover'>
+  <view class="page-body-wrapper">
+    <cover-view canvas-id="canvas" class="canvas">
+      <cover-view class="cover-view" wx:for='{{viewCameraNumberValueArray}}'>{{item}}</cover-view>
+    </cover-view>
+  </view>
+</view>
+
+<view class="{{isChangeViewCoverShow}} page-body" bindtap='changeChangeViewIsCover'>
+  <view class="page-body-wrapper">
+    <cover-view canvas-id="canvas" class="canvas">
+      <cover-view class="cover-view" wx:for='{{viewChangeCameraNumberValueArray}}'>{{item}}</cover-view>
+    </cover-view>
+  </view>
+</view>
+
+<view class="{{isChangeFaceCoverShow}} page-body" bindtap='changeChangeFaceIsCover'>
+  <view class="page-body-wrapper">
+    <cover-view canvas-id="canvas" class="canvas">
+      <cover-view class="cover-view" wx:for='{{faceChangeCameraNumberValueArray}}'>{{item}}</cover-view>
+    </cover-view>
+  </view>
+</view>
+
+<view class="{{isFaceCoverShow}} page-body" bindtap='changeFaceIsCover'>
+  <view class="page-body-wrapper">
+    <cover-view canvas-id="canvas" class="canvas">
+      <cover-view class="cover-view" wx:for='{{faceCameraNumberValueArray}}'>{{item}}</cover-view>
+    </cover-view>
+  </view>
+</view>
+<!-- <view class="section_title">当前登陆：{{ggwUserInfo.person_name}}</view> -->
+<!-- <view>{{shopName}}</view> -->
+<view class="section">
+  <view class="form_style">
+    <view class="form-row">
+        <view  bindtap="tapShowMap" class="form-row-label-view">
+            <text>全景个数</text>
+        </view>
+        <view class="form-row-item flex2">
+            <picker class="form-row-picker" value="{{index}}" bindchange="bindViewCamerasChange" range="{{camerasNumArray}}">
+                <view class="picker-text">
+                   {{camerasNumArray[viewCamerasIndex]}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>全景编号</text>
+        </view>
+        <view class="form-row-item">
+            <button class='cameraBtn' bindtap="bindViewCameraNumbInput">扫码</button>
+            <button class='cameraBtn' bindtap="checkViewCameraNumbInput">查看</button>
+        </view>
+    </view>
+
+    <view class='form-row {{isChangeComponentShow}}'>
+        <view class="form-row-label-view">
+            <text>更换编号</text>
+        </view>
+        <view class="form-row-item">
+            <button class='cameraBtn' bindtap="bindChangeViewCameraNumbInput">扫码</button>
+            <button class='cameraBtn' bindtap="checkChangeViewCameraNumbInput">查看</button>
+        </view>
+    </view>
+
+    <view class='form-row {{isChangeComponentShow}}'>
+        <view class="form-row-label-view">
+            <text>更换原因</text>
+        </view>
+        <view class="form-row-item">
+            <textarea class="form-row-textarea" bindinput="bindViewChangeWhy" placeholder="请填写更换原因..." value="{{viewChangeWhy}}"/>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>安装位置</text>
+            <text style="font-size:28rpx;">至少上传一张</text>
+        </view>
+        <view class="form-row-item">
+            <image src="{{imgUrl}}{{item}}" wx:for="{{viewImagesArray}}" class="form-row-item-image" mode="aspectFill"  data-index="{{index}}" bindtap="deleteViewImage"/>
+            <image src="" class="form-row-item-image" mode="widthFix" bindtap="addViewImages"/>
+        </view>
+    </view>
+    <view class="form-row">
+        <view  bindtap="tapShowMap" class="form-row-label-view">
+            <text>人脸个数</text>
+        </view>
+        <view class="form-row-item flex2">
+            <picker class="form-row-picker" value="{{index}}" bindchange="bindFaceCamerasChange" range="{{camerasNumArray}}">
+                <view class="picker-text">
+                   {{camerasNumArray[faceCamerasIndex]}}
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>人脸编号</text>
+        </view>
+        <view class="form-row-item">
+            <button class='cameraBtn' bindtap="bindFaceCameraNumbInput">扫码</button>
+            <button class='cameraBtn' bindtap="checkFaceCameraNumbInput">查看</button>
+        </view>
+    </view>
+
+    <view class='form-row {{isChangeComponentShow}}'>
+        <view class="form-row-label-view">
+            <text>更换编号</text>
+        </view>
+        <view class="form-row-item">
+            <button class='cameraBtn' bindtap="bindChangeFaceCameraNumbInput">扫码</button>
+            <button class='cameraBtn' bindtap="checkChangeFaceCameraNumbInput">查看</button>
+        </view>
+    </view>
+
+    <view class='form-row {{isChangeComponentShow}}'>
+        <view class="form-row-label-view">
+            <text>更换原因</text>
+        </view>
+        <view class="form-row-item">
+            <textarea class="form-row-textarea" bindinput="bindFaceChangeWhy" placeholder="请填写更换原因..." value="{{faceChangeWhy}}"/>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>安装位置</text>
+            <text style="font-size:28rpx;">至少上传一张</text>
+        </view>
+        <view class="form-row-item">
+            <image src="{{imgUrl}}{{item}}" wx:for="{{faceImagesArray}}" class="form-row-item-image" mode="aspectFill" data-index="{{index}}" bindtap="deleteFaceImage"/>
+            <image src="" class="form-row-item-image" mode="widthFix" bindtap="addFaceImages"/>
+        </view>
+    </view>
+    <view class="form-row">
+        <view  bindtap="tapShowMap" class="form-row-label-view">
+            <text>安装时间</text>
+        </view>
+        <view class="form-row-item flex2">
+            <picker class="form-row-picker" mode='date' value="{{date}}" bindchange="bindDateChange">
+                <view class="picker-text">
+                   {{date}}
+                </view>
+            </picker>
+        </view>
+    </view>
+    
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>店铺描述</text>
+        </view>
+        <view class="form-row-item">
+            <textarea class="form-row-textarea" bindinput="bindDescInput" placeholder="店铺描述..." value="{{descValue}}"/>
+        </view>
+    </view>
+
+    <view class="form-row">
+        <view class="form-row-label-view">
+            <text>测试效果</text>
+        </view>
+        <view class="form-row-item">
+            <textarea class="form-row-textarea" bindinput="bindTestEffectInput" placeholder="测试效果描述..." value="{{testEffectValue}}"/>
+        </view>
+    </view>
+
+
+    <view class="form-row">
+        <button class="{{delBtnClass}} delBtnRed" bindtap="tapDelete">删 除</button>
+        <button style="background-color:#FECA41;margin-top:10px;" bindtap="tapSubmit">提 交</button>
+    </view>
+    <text>{{tipTxt}}</text>
+</view>
+</view>
